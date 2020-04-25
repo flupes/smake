@@ -1,4 +1,3 @@
-dep/*
-obj/*
+.deps/*
+.objs/*
 bin/*
-
