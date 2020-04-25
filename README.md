@@ -14,7 +14,7 @@ https://docs.microsoft.com/en-us/windows/wsl/wsl2-install
 
 ```
 sudo apt update
-sudo apt install build-essential make clang
+sudo apt install build-essential make clang git
 ```
 
 ## Install Visual Studio Code
