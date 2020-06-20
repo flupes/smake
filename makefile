@@ -26,14 +26,19 @@ sources := $(wildcard *.cpp)
 #sources := hello.cpp simple.cpp waste.cpp
 
 # DEFINE EXECUTABLE HERE
-targets := hello waste
+targets := hello waste moving
+# If there is only a single source fule per executable, you could generate
+# this variable automatically:
+#targets := $(patsubst %.cpp, %, $(sources))
 
-# Let's use clang
+# Define your prefered compiler
 CC = clang++
 CXX = clang++
+#CC = g++
+#CXX = g++
 
 # Use a modern language and are careful about our code
-CXXFLAGS =  -std=c++17 -Wall -Wextra -g
+CXXFLAGS =  -std=c++17 -Wall -Wextra -g -fno-elide-constructors 
 
 # Dependency flags
 DEPFLAGS = -MT $@ -MMD -MP -MF $(dep_dir)/$*.d
@@ -41,8 +46,8 @@ DEPFLAGS = -MT $@ -MMD -MP -MF $(dep_dir)/$*.d
 # http://make.mad-scientist.net/papers/advanced-auto-dependency-generation/
 
 # Generation of artifacts should not pollute the directory
-dep_dir = ./dep
-obj_dir = ./obj
+dep_dir = ./.deps
+obj_dir = ./.objs
 bin_dir = ./bin
 
 objects := $(addprefix $(obj_dir)/, $(patsubst %.cpp,%.o, $(sources)))
