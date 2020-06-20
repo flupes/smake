@@ -26,10 +26,10 @@ sources := $(wildcard *.cpp)
 #sources := hello.cpp simple.cpp waste.cpp
 
 # DEFINE EXECUTABLE HERE
-targets := hello waste moving
 # If there is only a single source fule per executable, you could generate
 # this variable automatically:
 #targets := $(patsubst %.cpp, %, $(sources))
+targets := hello waste moved elided mapcpy 
 
 # Define your prefered compiler
 CC = clang++
